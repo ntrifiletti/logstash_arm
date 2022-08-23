@@ -13,7 +13,8 @@
         "vnet": "[concat(variables('serverhostname'),'-VirtualNetwork')]",
         "publicip": "[concat(variables('serverhostname'),'-PublicIP')]",
         "servernic": "[concat(variables('serverhostname'),'-NetworkInterface')]",
-        "serversubnet": "[concat(variables('serverhostname'),'-VirtualNetwork-Subnet')]"
+        "serversubnet": "[concat(variables('serverhostname'),'-VirtualNetwork-Subnet')]",
+        "vmname": "[concat(variables('serverhostname'), 'vm')]"
     },
     "resources": [
         {
@@ -142,7 +143,7 @@
             }
         },
         {
-            "name": "[concat(variables('serverhostname'), 'vm')]",
+            "name": "[variables('vmname')]",
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "2021-03-01",
             "location": "[resourceGroup().location]",
@@ -190,7 +191,7 @@
             }
         },
         {
-            "name": "[concat(variables('serverhostname'), '/customScript1')]",
+            "name": "[concat(variables('serverhostname'), '/customScript')]",
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "apiVersion": "2021-03-01",
             "location": "[resourceGroup().location]",
@@ -198,7 +199,7 @@
                 "displayName": "customScript1 for Linux VM"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Compute/virtualMachines', '')]"
+                "[resourceId('Microsoft.Compute/virtualMachines', variables('vmname'))]"
             ],
             "properties": {
                 "publisher": "Microsoft.Azure.Extensions",
@@ -211,7 +212,7 @@
                     ]
                 },
                 "protectedSettings": {
-                    "commandToExecute": "sh customScript.sh"
+                    "commandToExecute": "bash logstash_installation.sh"
                 }
             }
         }     
