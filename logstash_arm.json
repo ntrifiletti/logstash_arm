@@ -207,7 +207,7 @@
                 "autoUpgradeMinorVersion": true,
                 "settings": {
                     "fileUris": [
-                        "[concat('artifactsLocation', '/scripts/customScript.sh', 'artifactsLocationSasToken')]"
+                        "https://raw.githubusercontent.com/aravindan-acct/logstash_arm/main/scripts/logstash_installation.sh"
                     ]
                 },
                 "protectedSettings": {
