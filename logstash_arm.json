@@ -135,7 +135,7 @@
                                 "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicip'))]"
                             },
                             "subnet": {
-                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnet'), 'ubuntuVM1-VirtualNetwork-Subnet')]"
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnet'), variables('serversubnet'))]"
                             }
                         }
                     }
