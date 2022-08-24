@@ -4,6 +4,12 @@
     "parameters": {
         "serverpassword": {
             "value": "P@$$w0rd@123"
+        },
+        "omsworkspaceID": {
+            "value": "change-me"
+        },
+        "omsworkspaceprimarykey": {
+            "value": "change-me" 
         }
     }
 }

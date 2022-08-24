@@ -4,6 +4,12 @@
     "parameters": {
         "serverpassword": {
             "type": "securestring"
+        },
+        "omsworkspaceID": {
+            "type": "string"
+        },
+        "omsworkspaceprimarykey":{
+            "type": "string"
         }
     },
     "functions": [],
@@ -14,7 +20,12 @@
         "publicip": "[concat(variables('serverhostname'),'-PublicIP')]",
         "servernic": "[concat(variables('serverhostname'),'-NetworkInterface')]",
         "serversubnet": "[concat(variables('serverhostname'),'-VirtualNetwork-Subnet')]",
-        "vmname": "[concat(variables('serverhostname'), 'vm')]"
+        "vmname": "[concat(variables('serverhostname'), 'vm')]",
+        "userData": {
+            "OMSWorkspaceID": "[parameters('omsworkspaceID')]",
+            "OMSWorkspaceKey": "[parameters('omsworkspaceprimarykey')]"
+        },
+        "customData": "[string(variables('userData'))]"
     },
     "resources": [
         {
@@ -160,7 +171,8 @@
                 "osProfile": {
                     "computerName": "[variables('serverhostname')]",
                     "adminUsername": "labuser",
-                    "adminPassword": "[parameters('serverpassword')]"
+                    "adminPassword": "[parameters('serverpassword')]",
+                    "customData" : "[variables('customData')]"
                 },
                 "storageProfile": {
                     "imageReference": {
