@@ -9,8 +9,12 @@ sudo apt-get update
 sudo systemctl start elasticsearch
 sudo systemctl enable elasticsearch
 sudo apt-get install -y logstash
+wget https://raw.githubusercontent.com/aravindan-acct/logstash_arm/main/scripts/waf.conf
+sudo mv waf.conf /etc/logstash/conf.d/
+<<logstash
 sudo systemctl start logstash
 sudo systemctl enable logstash
+logstash
 touch /tmp/test.txt
 
 
