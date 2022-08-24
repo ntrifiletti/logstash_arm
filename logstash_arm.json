@@ -14,7 +14,7 @@
     },
     "functions": [],
     "variables": {
-        "serverhostname": "logstash",
+        "serverhostname": "cudawaaslogstash",
         "servernsg": "[concat(variables('serverhostname'), '-nsg')]",
         "vnet": "[concat(variables('serverhostname'),'-VirtualNetwork')]",
         "publicip": "[concat(variables('serverhostname'),'-PublicIP')]",
