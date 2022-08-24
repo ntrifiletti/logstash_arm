@@ -1,7 +1,7 @@
 #! /bin/bash
 
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
-echo "deb https://artifacts.elastic.co/packages/8.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list
+echo "deb https://artifacts.elastic.co/packages/8.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-8.x.list
 sudo apt-get update
 sudo apt-get install -y default-jdk
 sudo apt-get install -y elasticsearch
@@ -11,6 +11,7 @@ sudo systemctl enable elasticsearch
 sudo apt-get install -y logstash
 wget https://raw.githubusercontent.com/aravindan-acct/logstash_arm/main/scripts/waf.conf
 sudo mv waf.conf /etc/logstash/conf.d/
+sudo /usr/share/logstash/bin/logstash-plugin install microsoft-logstash-output-azure-loganalytics
 <<logstash
 sudo systemctl start logstash
 sudo systemctl enable logstash
