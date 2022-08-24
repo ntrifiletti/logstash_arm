@@ -14,7 +14,7 @@
     },
     "functions": [],
     "variables": {
-        "serverhostname": "logstashoms",
+        "serverhostname": "logstash",
         "servernsg": "[concat(variables('serverhostname'), '-nsg')]",
         "vnet": "[concat(variables('serverhostname'),'-VirtualNetwork')]",
         "publicip": "[concat(variables('serverhostname'),'-PublicIP')]",

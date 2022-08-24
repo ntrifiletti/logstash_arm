@@ -13,9 +13,10 @@ sudo mv waf.conf /etc/logstash/conf.d/
 sudo /usr/share/logstash/bin/logstash-plugin install microsoft-logstash-output-azure-loganalytics
 touch /tmp/test.txt
 apt install -y libxml2-utils && apt install -y jq
-xmllint --xpath "//*[local-name()='CustomData']" /var/lib/waagent/ovf-env.xml | sed -e 's/ns1:/ /g' | sed -e 's/ //g' > file.xml
-omsid = $(xmllint --xpath 'string(//CustomData)' file.xml | base64 --decode | jq '.OMSWorkspaceID')
-omskey = $(xmllint --xpath 'string(//CustomData)' file.xml | base64 --decode | jq '.OMSWorkspaceKey')
+xmllint --xpath "//*[local-name()='CustomData']" /var/lib/waagent/ovf-env.xml | sed -e 's/ns1:/ /g' | sed -e 's/ //g' > /tmp/file.xml
+cat /tmp/file.xml
+omsid = $(xmllint --xpath 'string(//CustomData)' /tmp/file.xml | base64 --decode | jq '.OMSWorkspaceID')
+omskey = $(xmllint --xpath 'string(//CustomData)' /tmp/file.xml | base64 --decode | jq '.OMSWorkspaceKey')
 
 echo "OMS ID: \n"
 echo $omsid
