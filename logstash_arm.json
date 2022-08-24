@@ -172,7 +172,7 @@
                     "computerName": "[variables('serverhostname')]",
                     "adminUsername": "labuser",
                     "adminPassword": "[parameters('serverpassword')]",
-                    "customData" : "[variables('customData')]"
+                    "customData" : "[base64(variables('customData'))]"
                 },
                 "storageProfile": {
                     "imageReference": {
