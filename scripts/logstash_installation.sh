@@ -31,7 +31,7 @@ fi
 echo "\nOMS Key: \n"
 echo $omskey
 
-if sudo sed -i "s/workspace_key => \"test\"/workspace_id => $omskey /g" /etc/logstash/conf.d/waf.conf ; then
+if sudo sed -i "s/workspace_key => \"test\"/workspace_key => $omskey /g" /etc/logstash/conf.d/waf.conf ; then
     echo "Replaced OMS Key"
 else
     echo "Error replacinig the key.. please check command"
