@@ -8,6 +8,7 @@ sudo apt-get update
 sudo systemctl start elasticsearch
 sudo systemctl enable elasticsearch
 sudo apt-get install -y logstash
+sudo apt-get install -y ruby
 wget https://raw.githubusercontent.com/aravindan-acct/logstash_arm/main/scripts/waf.conf
 sudo mv waf.conf /etc/logstash/conf.d/
 sudo /usr/share/logstash/bin/logstash-plugin install microsoft-logstash-output-azure-loganalytics
