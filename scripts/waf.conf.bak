@@ -81,8 +81,8 @@ filter {
    overwrite => ["cef_version"]
  }
   grok {
-    match => {"rt" => "^\s*%{DATA:rt}\s*$" }
-    overwrite => ["rt"]
+    match => {"DeviceReceiptTime" => "^\s*%{DATA:DeviceReceiptTime}\s*$" }
+    overwrite => ["DeviceReceiptTime"]
   }
   mutate {
     gsub => ["StartTime", '\"', ""]
@@ -96,26 +96,26 @@ filter {
     target => "StartTime"
   }
   date {
-    match => ["rt","UNIX_MS"]
-    target => "rt"
+    match => ["DeviceReceiptTime","UNIX_MS"]
+    target => "DeviceReceiptTime"
   }
 # LogType Specific Filtering
 if [cat] == "WF" {
     grok {
-      match => {"cn2" => "%{INT:cn2:int}" }
-      overwrite => ["cn2"]
+      match => {"ProxyPort" => "%{INT:ProxyPort:int}" }
+      overwrite => ["ProxyPort"]
     }
     
     grok {
-      match => {"dpt" => "%{INT:dpt:int}" }
-      overwrite => ["dpt"]
+      match => {"ServicePort" => "%{INT:ServicePort:int}" }
+      overwrite => ["ServicePort"]
     }
     grok {
-      match => {"spt" => "%{INT:spt:int}" }
-      overwrite => ["spt"]
+      match => {"ClientPort" => "%{INT:ClientPort:int}" }
+      overwrite => ["ClientPort"]
     }
     geoip {
-      source => "src"
+      source => "ClientIP"
       target => "geoip"
       #database => "/etc/logstash/GeoLiteCity.dat"
       add_field => [ "[geoip][coordinates]", "%{[geoip][longitude]}" ]
@@ -126,45 +126,45 @@ if [cat] == "WF" {
     }
  } else if [cat] == "TR" {
     grok {
-      match => {"dpt" => "%{INT:dpt:int}" }
-      overwrite => ["dpt"]
+      match => {"ServicePort" => "%{INT:ServicePort:int}" }
+      overwrite => ["ServicePort"]
     }
     grok {
-      match => {"cn2" => "%{INT:cn2:int}" }
-      overwrite => ["cn2"]
+      match => {"CacheHit" => "%{INT:CacheHit:int}" }
+      overwrite => ["CacheHit"]
     }
     grok {
-      match => {"cn3" => "%{INT:cn3:int}" }
-      overwrite => ["cn3"]
+      match => {"ProxyPort" => "%{INT:ProxyPort:int}" }
+      overwrite => ["ProxyPort"]
     }
     grok {
-      match => {"flexNumber1" => "%{INT:flexNumber1:int}" }
-      overwrite => ["flexNumber1"]
+      match => {"ServerTime" => "%{INT:ServerTime:int}" }
+      overwrite => ["ServerTime"]
     }
     grok {
-      match => {"flexNumber2" => "%{INT:flexNumber2:int}" }
-      overwrite => ["flexNumber2"]
+      match => {"TimeTaken" => "%{INT:TimeTaken:int}" }
+      overwrite => ["TimeTaken"]
     }
     
     
     grok {
-      match => {"dpt" => "%{INT:dpt:int}" }
-      overwrite => ["dpt"]
+      match => {"ServerPort" => "%{INT:ServerPort:int}" }
+      overwrite => ["ServerPort"]
     }
     grok {
-      match => {"in" => "%{INT:in:int}" }
-      overwrite => ["in"]
+      match => {"BytesReceived" => "%{INT:BytesReceived:int}" }
+      overwrite => ["BytesReceived"]
     }
     grok {
-      match => {"out" => "%{INT:out:int}" }
-      overwrite => ["out"]
+      match => {"BytesSent" => "%{INT:BytesSent:int}" }
+      overwrite => ["BytesSent"]
     }
     grok {
-      match => {"spt" => "%{INT:spt:int}" }
-      overwrite => ["spt"]
+      match => {"ClientPort" => "%{INT:ClientPort:int}" }
+      overwrite => ["ClientPort"]
     }
     geoip {
-      source => "src"
+      source => "ClientIP"
       target => "geoip"
       #database => "/etc/logstash/GeoLiteCity.dat"
       add_field => [ "[geoip][coordinates]", "%{[geoip][longitude]}" ]
