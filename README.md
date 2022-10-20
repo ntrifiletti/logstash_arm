@@ -16,6 +16,7 @@ The server can be deployed using the ARM template in this repo. Most of the sett
 3. Log Format
 
     3.a For the Syslog Header field, select ArcSight Log Header
+    
     3.b For the Firewall logs and Access logs fields, select Microsoft Azure OMS
 
 ![alt text](https://github.com/aravindan-acct/logstash_arm/blob/main/images/waas_export_logs.png?raw=true)
