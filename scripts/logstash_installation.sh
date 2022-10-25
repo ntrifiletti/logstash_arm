@@ -38,6 +38,6 @@ else
     echo "Error replacinig the key.. please check command"
 fi
 sudo systemctl start logstash
-<<logstash
+
 sudo systemctl enable logstash
-logstash
+

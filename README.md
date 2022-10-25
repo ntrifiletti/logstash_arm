@@ -16,6 +16,7 @@ The server can be deployed using the ARM template in this repo. Most of the sett
 3. Log Format
 
     3.a For the Syslog Header field, select ArcSight Log Header. The header value format will be auto set as follows:
+
     `CEF:0|DeviceVendor|Product|DeviceVersion|SignatureID|Name|Severity|`
 
     3.b For the Firewall logs and Access logs fields, select Microsoft Azure OMS. The log format will be auto set as follows:
@@ -30,3 +31,11 @@ The server can be deployed using the ARM template in this repo. Most of the sett
 
 
 ![alt text](https://github.com/aravindan-acct/logstash_arm/blob/main/images/waas_export_logs.png?raw=true)
+
+## Logstash Server Troubleshooting
+
+1. The configuration file, named waf.conf is under /etc/logstash/conf.d/. Any changes for the logstash input/filter or output section can be made here. Ensure to restart logstash if any changes are made to this file: `sudo systemctl stop logstash` and `sudo systemctl start logstash`
+
+2. To check if logstash's configuration is working correctly, the file plugin is used to send the processed log events to a file on the server, which is named `output.txt` and can be found under `/home/labuser`
+    2.a. If `output.txt` has no log events, logstash related logs can be checked under `/var/log/logstash/logstash-plain.log`, which captures service and plugin errors if any
+
