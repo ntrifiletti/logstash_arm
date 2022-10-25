@@ -9,7 +9,7 @@
     4. [Logstash Server Troubleshooting](#logstash-server-troubleshooting)
     5. [Log events in Azure Log Analytics / Microsoft Sentinel](#log-events-in-azure-log-analytics--microsoft-sentinel)
 ## Introduction
-This repo can be used to deploy a logstash server that can act as a mediator to send logs from one or more WAAS services to Log Analytics and Microsoft Sentinel.
+This repo can be used to deploy a log collector server that can act as a mediator to send logs from one or more WAAS services to Log Analytics and Microsoft Sentinel.
 
 ## Deploying the Logstash Server
 The [logstash](https://www.elastic.co/guide/en/logstash/current/introduction.html) server can be deployed using the [ARM template](https://raw.githubusercontent.com/aravindan-acct/logstash_arm/main/logstash_arm.json) in this repo. 
