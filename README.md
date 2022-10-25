@@ -16,11 +16,9 @@ The Logstash configuration can be found here: [Logstash Configuration File](http
 
 ### Deploying the ARM Template
 
-Deploy using `Portal`
+To deploy using `Portal`, refer to [Microsoft Documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-portal)
 
-[Microsoft Documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-portal)
-
-Deploying using `Powershell`
+To deploy using `Powershell`, copy the command below:
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
