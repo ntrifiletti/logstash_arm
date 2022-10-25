@@ -41,8 +41,8 @@ New-AzResourceGroup -Name ExampleResourceGroup -Location "Central US"
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateUri https://raw.githubusercontent.com/aravindan-acct/logstash_arm/main/logstash_arm.json `
-  -TemplateParameterUri https://raw.githubusercontent.com/aravindan-acct/logstash_arm/main/logstash_arm.parameters.json
+  -TemplateUri https://raw.githubusercontent.com/ntrifiletti/logstash_arm/main/logstash_arm.json `
+  -TemplateParameterUri https://raw.githubusercontent.com/ntrifiletti/logstash_arm/main/logstash_arm.parameters.json
 ```
 
 
