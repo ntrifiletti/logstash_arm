@@ -14,7 +14,7 @@
     },
     "functions": [],
     "variables": {
-        "serverhostname": "cudawaaslogstash",
+        "serverhostname": "cudawaascollector",
         "storageaccountname": "[toLower(concat('storage',uniqueString(resourceGroup().id)))]",
         "servernsg": "[concat(variables('serverhostname'), '-nsg')]",
         "vnet": "[concat(variables('serverhostname'),'-VirtualNetwork')]",
