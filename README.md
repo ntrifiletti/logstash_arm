@@ -1,5 +1,14 @@
 # Barracuda WAF As A Service Integration with Azure Log Analaytics / Microsoft Sentinel
 
+## Table of contents
+1. [Introduction](#introduction)
+2. [Deploying the Logstash Server](#deploying-the-logstash-server)
+    1. [Deployment Pre-Requisites](#deployment-pre-requisites)
+    2. [Deploying the ARM Template](#deploying-the-arm-template)
+    3. [WAAS Configuration](#waas-configuration)
+    4. [Logstash Server Troubleshooting](#logstash-server-troubleshooting)
+    5. [Log events in Azure Log Analytics / Microsoft Sentinel](#log-events-in-azure-log-analytics--microsoft-sentinel)
+## Introduction
 This repo can be used to deploy a logstash server that can act as a mediator to send logs from one or more WAAS services to Log Analytics and Microsoft Sentinel.
 
 ## Deploying the Logstash Server
