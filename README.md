@@ -62,7 +62,8 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
 
 1. The configuration file, named `waf.conf`is under `/etc/logstash/conf.d/`. Any changes for the logstash input/filter or output section can be made here. Ensure to restart logstash if any changes are made to this file: `sudo systemctl stop logstash` and `sudo systemctl start logstash`.
 
-2. To check if logstash's configuration is working correctly, the file plugin is used to send the processed log events to a file on the server, which is named `output.txt` and can be found under `/home/labuser`
+2. To check if logstash's configuration is working correctly, the file plugin is used to send the processed log events to a file on the server, which is named `output.txt` and can be found under `/home/labuser`.
+
     2.a. If `output.txt` has no log events, logstash related logs can be checked under `/var/log/logstash/logstash-plain.log`, which captures service and plugin errors if any.
 
 ### Log events in Azure Log Analytics / Microsoft Sentinel
