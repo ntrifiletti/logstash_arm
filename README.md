@@ -29,6 +29,14 @@ To deploy using `Portal`, refer to [Microsoft Documentation](https://learn.micro
 
 To deploy using `Powershell`, copy the command below:
 
+1. Create a resource group
+
+```powershell
+New-AzResourceGroup -Name ExampleResourceGroup -Location "Central US"
+```
+
+2. Deploy the template
+
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateUri https://raw.githubusercontent.com/aravindan-acct/logstash_arm/main/logstash_arm.json `

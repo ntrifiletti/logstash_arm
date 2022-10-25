@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "serverpassword": {
-            "value": "P@$$w0rd@123"
+            "value": "P@$$w0rd@123" 
         },
         "omsworkspaceID": {
             "value": "change-me"
