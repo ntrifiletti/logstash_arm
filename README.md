@@ -25,7 +25,7 @@ The Logstash configuration can be found here: [Logstash Configuration File](http
 
 ### Deploying the ARM Template
 
-#### Note: Please change the password (serverpassword) in the logstash_arm.parameters.json file before deploying.
+#### Note: Please change the`serverpassword` in the logstash_arm.parameters.json file before deploying.
 
 To deploy using `Portal`, refer to [Microsoft Documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-portal)
 
