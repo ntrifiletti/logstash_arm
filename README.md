@@ -69,3 +69,9 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
 ### Log events in Azure Log Analytics / Microsoft Sentinel
 
 The processed logs can be found in a custom log table called `WAAS_MS_Sentinel` in the log analytics workspace. These logs will be the source data based on which visualization / analytics / orchestration tasks can be performed.
+
+### Notes about deployment 
+
+1. The ARM template has the following NSG rules: 
+    - Syslog port: UDP 1514
+    - SSH Port : TCP 22 

@@ -13,6 +13,8 @@ wget https://raw.githubusercontent.com/aravindan-acct/logstash_arm/main/scripts/
 sudo mv waf.conf /etc/logstash/conf.d/
 sudo /usr/share/logstash/bin/logstash-plugin install microsoft-logstash-output-azure-loganalytics
 touch /tmp/test.txt
+touch /home/labuser/output.txt
+sudo chmod 666 /home/labuser/output.txt
 apt install -y libxml2-utils && apt install -y jq
 xmllint --xpath "//*[local-name()='CustomData']" /var/lib/waagent/ovf-env.xml | sed -e 's/ns1:/ /g' | sed -e 's/ //g' > /tmp/file.xml
 cat /tmp/file.xml
