@@ -15,6 +15,7 @@
     "functions": [],
     "variables": {
         "serverhostname": "cudawaaslogstash",
+        "storageaccountname": "[toLower(concat('storage',uniqueString(resourceGroup().id)))]",
         "servernsg": "[concat(variables('serverhostname'), '-nsg')]",
         "vnet": "[concat(variables('serverhostname'),'-VirtualNetwork')]",
         "publicip": "[concat(variables('serverhostname'),'-PublicIP')]",
@@ -29,7 +30,7 @@
     },
     "resources": [
         {
-            "name": "[toLower(concat('storage',uniqueString(resourceGroup().id)))]",
+            "name": "[variables('storageaccountname')]",
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2021-04-01",
             "location": "[resourceGroup().location]",
@@ -197,7 +198,7 @@
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
                         "enabled": true,
-                        "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', toLower(concat(variables('serverhostname'),'storage')))).primaryEndpoints.blob]"
+                        "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', toLower(variables('storageaccountname')))).primaryEndpoints.blob]"
                     }
                 }
             }
