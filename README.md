@@ -14,6 +14,21 @@ The Logstash configuration can be found here: [Logstash Configuration File](http
 1. Log Analytics Workspace ID and Workspace Key
 2. WAAS Account and [Application](https://campus.barracuda.com/doc/77399164/) to send logs to the logstash server
 
+### Deploying the ARM Template
+
+Deploy using `Portal`
+
+[Microsoft Documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-portal)
+
+Deploying using `Powershell`
+
+```powershell
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+  -TemplateUri https://raw.githubusercontent.com/aravindan-acct/logstash_arm/main/logstash_arm.json `
+  -TemplateParameterUri https://raw.githubusercontent.com/aravindan-acct/logstash_arm/main/logstash_arm.parameters.json
+```
+
+
 ### WAAS Configuration
 1. Add the export logs component
 2. Add the syslog server and set the port as 1514 (UDP)
@@ -38,7 +53,7 @@ The Logstash configuration can be found here: [Logstash Configuration File](http
 
 ### Logstash Server Troubleshooting
 
-1. The configuration file, named `waf.conf`<is under `/etc/logstash/conf.d/`. Any changes for the logstash input/filter or output section can be made here. Ensure to restart logstash if any changes are made to this file: `sudo systemctl stop logstash` and `sudo systemctl start logstash`.>
+1. The configuration file, named `waf.conf`is under `/etc/logstash/conf.d/`. Any changes for the logstash input/filter or output section can be made here. Ensure to restart logstash if any changes are made to this file: `sudo systemctl stop logstash` and `sudo systemctl start logstash`.
 
 2. To check if logstash's configuration is working correctly, the file plugin is used to send the processed log events to a file on the server, which is named `output.txt` and can be found under `/home/labuser`
     2.a. If `output.txt` has no log events, logstash related logs can be checked under `/var/log/logstash/logstash-plain.log`, which captures service and plugin errors if any.
