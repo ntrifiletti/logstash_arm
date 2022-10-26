@@ -72,7 +72,8 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
 
 ### Logstash Server Troubleshooting
 
-(To login to the server over ssh, use "labuser" as the username)
+SSH to Logstash Server
+username: `labuser`
 
 1. The configuration file, named `waf.conf`is under `/etc/logstash/conf.d/`. Any changes for the logstash input/filter or output section can be made here. Ensure to restart logstash if any changes are made to this file: `sudo systemctl stop logstash` and `sudo systemctl start logstash`.
 
