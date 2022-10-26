@@ -59,18 +59,23 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
 
     3.b For the `Firewall logs` and `Access logs` fields, select `Microsoft Azure OMS`. The log format will be auto set. See below.
     
-    Syslog Header:
+#### Syslog Header:
     
-      ```CEF:0|DeviceVendor|Product|DeviceVersion|SignatureID|Name|Severity|```
+```powershell 
+CEF:0|DeviceVendor|Product|DeviceVersion|SignatureID|Name|Severity|
+```    
+#### Firewall Logs:
     
-    Firewall Logs:
-    
-    ```%header cat=%lt dst=%ai dpt=%ap act=%at msg=%adl duser=%au src=%ci spt=%cp requestMethod=%m app=%p requestContext=%r rt=%tarc request=%u requestClientApplication=%ua dvchost=%un cn2=%pp cn2Label=ProxyPort cs1=%ri cs1Label=RuleID cs2=%fa cs2Label=FollowUpAction cs3=%rt cs3Label=RuleType cs4=%ag cs4Label=AttackGroup cs5=%px cs5Label=ProxyIP cs6=%sid cs6Label=SessionID destinationServiceName=%sn```
+```powershell 
+%header cat=%lt dst=%ai dpt=%ap act=%at msg=%adl duser=%au src=%ci spt=%cp requestMethod=%m app=%p requestContext=%r rt=%tarc request=%u requestClientApplication=%ua dvchost=%un cn2=%pp cn2Label=ProxyPort cs1=%ri cs1Label=RuleID cs2=%fa cs2Label=FollowUpAction cs3=%rt cs3Label=RuleType cs4=%ag cs4Label=AttackGroup cs5=%px cs5Label=ProxyIP cs6=%sid cs6Label=SessionID destinationServiceName=%sn
+```
 
-    Access Logs:
 
-    ```%header cat=%lt dvc=%ai duser=%au in=%br out=%bs suser=%cu src=%ci spt=%cp requestCookies=%c dhost=%h outcome=%s suid=%id requestMethod=%m app=%p msg=%q requestContext=%r dst=%si dpt=%sp  rt=%tarc request=%u requestClientApplication=%ua dvchost=%un cs1Label=ClientType cs1=%ct cs2Label=Protected cs2=%pf cs3Label=ProxyIP cs3=%px cs4Label=ProfileMatched cs4=%pmf cs6Label=WFMatched cs6=%wmf cn1Label=ServicePort cn1=%ap cn2Label=CacheHit cn2=%ch cn3Label=ProxyPort cn3=%pp flexNumber1Label=ServerTime(ms) flexNumber1=%st flexNumber2Label=TimeTaken(ms) flexNumber2=%tt flexString1Label=ProtocolVersion flexString1=%v BarracudaWafCustomHeader1=%cs1 BarracudaWafCustomHeader2=%cs2 BarracudaWafCustomHeader3=%cs3 BarracudaWafResponseType=%rtf BarracudaWafSessionID=%sid destinationServiceName=%sn```
+#### Access Logs:
 
+```powershell
+%header cat=%lt dvc=%ai duser=%au in=%br out=%bs suser=%cu src=%ci spt=%cp requestCookies=%c dhost=%h outcome=%s suid=%id requestMethod=%m app=%p msg=%q requestContext=%r dst=%si dpt=%sp  rt=%tarc request=%u requestClientApplication=%ua dvchost=%un cs1Label=ClientType cs1=%ct cs2Label=Protected cs2=%pf cs3Label=ProxyIP cs3=%px cs4Label=ProfileMatched cs4=%pmf cs6Label=WFMatched cs6=%wmf cn1Label=ServicePort cn1=%ap cn2Label=CacheHit cn2=%ch cn3Label=ProxyPort cn3=%pp flexNumber1Label=ServerTime(ms) flexNumber1=%st flexNumber2Label=TimeTaken(ms) flexNumber2=%tt flexString1Label=ProtocolVersion flexString1=%v BarracudaWafCustomHeader1=%cs1 BarracudaWafCustomHeader2=%cs2 BarracudaWafCustomHeader3=%cs3 BarracudaWafResponseType=%rtf BarracudaWafSessionID=%sid destinationServiceName=%sn
+```
 
 
 
