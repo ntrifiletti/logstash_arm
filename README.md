@@ -1,4 +1,4 @@
-# Barracuda WAF As A Service Integration with Azure Log Analaytics / Microsoft Sentinel
+# Barracuda WAF-as-a-Service (WaaS) Integration with Azure Log Analaytics / Microsoft Sentinel using Logstash
 
 ## Table of contents
 1. [Introduction](#introduction)
