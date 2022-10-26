@@ -79,6 +79,8 @@ CEF:0|DeviceVendor|Product|DeviceVersion|SignatureID|Name|Severity|
 
 
 
+
+
 ### Logstash Server Troubleshooting
 
 SSH to Logstash Server
