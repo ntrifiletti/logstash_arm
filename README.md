@@ -21,8 +21,9 @@ The Logstash configuration can be found here: [Logstash Configuration File](http
 ### Deployment Pre-Requisites
 
 1. Log Analytics Workspace ID and Workspace Key
-    Log Analytics -> Agents Management-> Linux Servers
-    -Workspace ID & Primary Key
+
+		Log Analytics -> Agents Management-> Linux Servers
+		>	Workspace ID & Primary Key (Workspace Key)
 2. WAAS Account and [Application](https://campus.barracuda.com/doc/77399164/) to send logs to the logstash server
 
 ### Deploying the ARM Template
