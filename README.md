@@ -49,15 +49,15 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
 
 
 ### WAAS Configuration
-1. Add the export logs component
-2. Add the syslog server and set the port as 1514 (UDP)
-3. Log format configuration
-
-    3.a For the Syslog Header field, select ArcSight Log Header. The header value format will be auto set as follows:
+1. Add the `Log Export` component
+2. `Add Syslog Server` and set the port as 1514 (UDP)
+3. Log format configuration as follows:
+![alt text](https://github.com/aravindan-acct/logstash_arm/blob/main/images/waas_export_logs.png?raw=true)
+    3.a For the 'Syslog Header field`, select `ArcSight Log Header`. The header value format will be auto set as follows:
 
     ```CEF:0|DeviceVendor|Product|DeviceVersion|SignatureID|Name|Severity|```
 
-    3.b For the Firewall logs and Access logs fields, select Microsoft Azure OMS. The log format will be auto set as follows:
+    3.b For the `Firewall logs` and `Access logs` fields, select `Microsoft Azure OMS`. The log format will be auto set as follows:
     
     Firewall Logs:
     
@@ -68,7 +68,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
     ```%header cat=%lt dvc=%ai duser=%au in=%br out=%bs suser=%cu src=%ci spt=%cp requestCookies=%c dhost=%h outcome=%s suid=%id requestMethod=%m app=%p msg=%q requestContext=%r dst=%si dpt=%sp  rt=%tarc request=%u requestClientApplication=%ua dvchost=%un cs1Label=ClientType cs1=%ct cs2Label=Protected cs2=%pf cs3Label=ProxyIP cs3=%px cs4Label=ProfileMatched cs4=%pmf cs6Label=WFMatched cs6=%wmf cn1Label=ServicePort cn1=%ap cn2Label=CacheHit cn2=%ch cn3Label=ProxyPort cn3=%pp flexNumber1Label=ServerTime(ms) flexNumber1=%st flexNumber2Label=TimeTaken(ms) flexNumber2=%tt flexString1Label=ProtocolVersion flexString1=%v BarracudaWafCustomHeader1=%cs1 BarracudaWafCustomHeader2=%cs2 BarracudaWafCustomHeader3=%cs3 BarracudaWafResponseType=%rtf BarracudaWafSessionID=%sid destinationServiceName=%sn```
 
 
-![alt text](https://github.com/aravindan-acct/logstash_arm/blob/main/images/waas_export_logs.png?raw=true)
+
 
 ### Logstash Server Troubleshooting
 
