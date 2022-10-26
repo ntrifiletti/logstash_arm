@@ -97,6 +97,10 @@ username: `labuser`
 
 The processed logs can be found in a custom log table called `WAAS_MS_Sentinel` in the log analytics workspace. These logs will be the source data based on which visualization / analytics / orchestration tasks can be performed.
 
+1. You must modify the WAF.CONF file to update the `Workspace ID & Workspace Key`
+
+2. To check if logstash's configuration is working correctly, the file plugin is used to send the processed log events to a file on the server, which is named `output.txt` and can be found under `/home/labuser`.
+
 ### Notes about deployment 
 
 1. The ARM template has the following NSG rules: 
