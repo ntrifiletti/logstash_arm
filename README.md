@@ -9,14 +9,14 @@
     4. [Logstash Server Troubleshooting](#logstash-server-troubleshooting)
     5. [Log events in Azure Log Analytics / Microsoft Sentinel](#log-events-in-azure-log-analytics--microsoft-sentinel)
 ## Introduction
-This repo can be used to deploy a log collector server that can act as a mediator to send logs from one or more WAAS services to Log Analytics and Microsoft Sentinel.
+This repo can be used to deploy a logstash collector server that can act as a mediator to send logs from one or more WAAS services to Log Analytics and Microsoft Sentinel.
 
 ## Deploying the Logstash Server
-The [logstash](https://www.elastic.co/guide/en/logstash/current/introduction.html) server can be deployed using the [ARM template](https://raw.githubusercontent.com/aravindan-acct/logstash_arm/main/logstash_arm.json) in this repo. 
+The [logstash](https://www.elastic.co/guide/en/logstash/current/introduction.html) server can be deployed using the [ARM template](https://raw.githubusercontent.com/ntrifiletti/logstash_arm/main/logstash_arm.json) in this repo. 
 
 Most of the logstash server's settings are already configured. The only inputs for the ARM template deployment are the logstash server `password`, the log analytics `workspace id` and log analytics `workspace key`, which can be updated in the ARM template's [parameters file](https://raw.githubusercontent.com/aravindan-acct/logstash_arm/main/logstash_arm.parameters.json). 
 
-The Logstash configuration can be found here: [Logstash Configuration File](https://github.com/aravindan-acct/logstash_arm/blob/main/scripts/waf.conf)
+The Logstash configuration can be found here: [Logstash Configuration File](https://github.com/ntrifiletti/logstash_arm/blob/main/scripts/waf.conf)
 
 ### Deployment Pre-Requisites
 
@@ -52,7 +52,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
 1. Add the `Log Export` component
 2. `Add Syslog Server` and set the port as 1514 (UDP)
 3. Log format configuration as follows:
-![alt text](https://github.com/aravindan-acct/logstash_arm/blob/main/images/waas_export_logs.png?raw=true)
+![alt text](https://github.com/ntrifiletti/logstash_arm/blob/main/images/waas_export_logs.png?raw=true)
     3.a For the 'Syslog Header field`, select `ArcSight Log Header`. The header value format will be auto set as follows:
 
     ```CEF:0|DeviceVendor|Product|DeviceVersion|SignatureID|Name|Severity|```
