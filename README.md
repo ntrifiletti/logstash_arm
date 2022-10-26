@@ -53,11 +53,15 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
 2. `Add Syslog Server` and set the port as 1514 (UDP)
 3. Log format configuration as follows:
 ![alt text](https://github.com/ntrifiletti/logstash_arm/blob/main/images/waas_export_logs.png?raw=true)
-    3.a For the 'Syslog Header field`, select `ArcSight Log Header`. The header value format will be auto set as follows:
+    3.a For the `Syslog Header field`, select `ArcSight Log Header`. 
 
-    ```CEF:0|DeviceVendor|Product|DeviceVersion|SignatureID|Name|Severity|```
+  
 
-    3.b For the `Firewall logs` and `Access logs` fields, select `Microsoft Azure OMS`. The log format will be auto set as follows:
+    3.b For the `Firewall logs` and `Access logs` fields, select `Microsoft Azure OMS`. The log format will be auto set. See below.
+    
+    Syslog Header:
+    
+      ```CEF:0|DeviceVendor|Product|DeviceVersion|SignatureID|Name|Severity|```
     
     Firewall Logs:
     
